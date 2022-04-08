@@ -1,0 +1,489 @@
+@font-face {
+    font-family: '나눔스퀘어';
+    src: url(../font/NanumSquareB.woff);
+    /* woff가 용량이 1/3 수준이라 웹용으로 많이 쓴다. */
+}
+/* 숙련자들은 css 파일 맨 위에 호환성 이슈 해결책부터 첨부하는 경우가 있다.
+크롬이랑 사파리 엣지가 다 다르듯
+normalize.css 를 참고하자 */
+textarea,input,div{
+    box-sizing: border-box;
+}
+
+body{
+    margin:0px;
+    font-family: '나눔스퀘어';
+    font-weight: 400;
+}
+
+p,h4,h3,h2,span{
+    transform: rotate(0.03deg);
+    /* 0.03도 정도 살짝 기울여주면 폰트가 부드러워진다. 꿀팁 */
+}
+
+/* 처음부터 이러한 설정을 해두면 깔끔하다. */
+
+.box {
+    width: 200px;
+    background: cadetblue;
+    margin: 10px;
+    /* 상하좌우여백 동시에 */
+    padding: 40px;
+    /* 안쪽여백 = 패딩 */
+    border: 4px solid black;
+    /* 경계부분사이즈와 색상지정 가능 */
+    border-radius: 20px;
+    /* 둥근모서리 */
+    display: block;
+    /* 가로행을 모두 차지함 */
+    margin-left: auto;
+    margin-right: auto;
+    /* 박스를 가운데 정렬함 */
+    box-shadow: 10px 10px black;
+    color: white;
+}
+
+.container{
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header{
+    width: 100%;
+    height: 50px;
+    background: aquamarine;
+}
+
+.left-menu{
+    width: 20%;
+    height: 400px;
+    background: cornflowerblue;
+    float: left;
+    /* 모든 박스속성들은 폭을 모두 차지하려는 경향이 있는데,
+    flaot를 쓰게되면, 요소를 띄워서 왼쪽으로 정렬시키기때문에
+    오른쪽에 다른 요소를 추가할 수 있다. */
+}
+
+.right{
+    width: 80%;
+    height: 400px;
+    background: coral;
+    float: left;
+}
+
+.footer{
+    width:100%;
+    height: 100px;
+    background-color: grey;
+    clear: both;
+    /* float를 쓰게되면 다음요소가 float를 쓴 요소와 겹칠 수 있다.
+    이럴때 clear를 쓰면 다음에 배치하는요소를 정상적인 위치에 로케이트할 수 있다. */
+}
+
+.blog-content {
+    width: 80%;
+    height: 200px;
+    background: #eee;
+    float : left;
+}
+
+.blog-img{
+    width:20%;
+    height: 200px;
+    background: yellow;
+    float : left;
+}
+
+.blog-name{
+    float: left;
+}
+
+.blog-prfile{
+    width:50px;
+    display: block;
+    float: left;
+}
+
+.navbar li{
+    display: inline-block;
+    width: 60px;
+    text-align: center;
+    background: #eee;
+    padding: 10px;
+    border-radius: 5px;
+}
+.navbar a{
+    font-size: 16px;
+    text-decoration: none;
+    /* 링크아해 밑줄 제거 */
+}
+
+.main-background {
+    text-align: center;
+    width: 100%;
+    height: 500px;
+    background-image: url(img/background1.png);
+    background-size: cover;
+    /* cover : 알아서 꽉 채워라 */
+    /* contain :div가 남아도 좋으니깐 사진이 짤리지않게 알아서 채워주세요 */
+    background-repeat: no-repeat;
+    background-position: center;
+    /* 가운데부터 채워주세요 */
+    background-attachment: fixed;
+    /* 스크롤시 배경위치 조정가능 / fixed는 고정 */
+    filter:brightness(70%);
+    /* 밝기 필터 70%는 조금 어둡게 */
+    padding: 1px;
+    /* 안쪽여백을 주면 main-background가 붕뜨는걸 막아줌*/
+    position: relative;
+}
+
+.main-title{
+    color: white;
+    font-size: 40px;
+    margin-top: 100px;
+}
+
+.main-pa{
+    color: wheat;
+    font-size: 15px;
+}
+
+.main-button {
+    margin-top:100px;
+    padding: 15px;
+    font-size: 20px;
+    background: white;
+    border: none;
+    border-radius: 10px;
+    position: relative;
+    /* 좌표속성을 사용할 수 있도록, 내 원래 위치를 기준으로 이동함 즉, 기준점 */
+    /* 플로트마냥 공중에 뜸 */
+    /* position : fixed 하면 스크룰바를 내리든 올리든 상관없이 그 위치에 고정됨 */
+    /* position : absolute 내 부모태그중에 position:relative 를 가진 속성 기준으로 좌표이동. */
+    /* position : relative 상태에서
+    left = 0;
+    right = 0;
+    margin = auto;
+    width:150px (적당하게) 입력하면 relation 기준으로 중간에 배열된다. */
+    bottom:40px;
+    left:10px;
+    cursor: pointer;
+}
+.main-button:hover{
+    background-color: rgb(67, 64, 64);
+}
+
+.sub-title{
+    color: black;
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.sub-pa{
+    color: black;
+    font-size: 20px;
+}
+
+.sub-box {
+    
+    font-size: 10%;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 800px;
+    max-height: 300px;
+    height: 30%;
+    /* width를 %로 설정해두면 나중에 모바일에서도 과하지않게 설정이 되지만,
+    pc로 봤을때 너무 클 수 있다. 이럴땐 max-width로 최대 폭을 제한하면 된다 ! */
+    background: #eee;
+    text-align: center;
+    display: block;
+    /* 가로행을 모두 차지함 */
+    margin-left: auto;
+    margin-right: auto;
+    /* 박스를 가운데 정렬함 */
+    position: relative;
+    top:-40px;
+    padding: 20px;
+    z-index: 5;
+    /* z-index가 숫자가 높을수록 레이아웃 앞배경이됨. */
+    
+}
+
+
+input[type=text]{
+    padding: 20px;
+    font-size: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+/* 모든 input 속성에 이 css값을 넣기 싫을땐, type을 지정해서 인풋의 스타일을 만들 수도 있다.
+이렇게되면 이메일이나 패스워드등에 쓰는 스타일은 변경되지 않는다. */
+
+.form-background{
+    background-color: black;
+    padding: 30px;
+}
+
+.contact-box{
+    background-color: white;
+    padding: 30px;
+    width: 80%;
+    max-width: 700px;
+    height: 60%;
+    max-height: 600px;
+    margin: auto;
+}
+
+input[type=email]{
+    width: 100%;
+    max-width: 700px;
+    border-radius: 5px;
+    height: 10%;
+    max-height: 60px;
+    float: left;
+}
+
+.form-input{
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.w-50{
+    width: 50%;
+    float: left;
+    padding: 10px;
+}
+.w-100{
+    width: 100%;
+    padding: 10px;
+}
+
+.black-button{
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    display: block;
+    margin-left: auto;
+}
+
+/* td,th{
+    border:1px solid black;
+} */
+
+table{
+    border-collapse: collapse;
+}
+
+.cart-background{
+    background-color: #c2d3de;
+    width: 100%;
+    padding: 30px;
+}
+
+.cart-table{
+    width: 100%;
+    max-width: 700px;
+    background-color: white;
+    border-radius: 10px;
+    margin: auto;
+}
+.cart-table th:nth-child(2){
+    width: 400px;
+}
+
+.cart-table td,th{
+    padding: 15px;
+    border-bottom: 1px solid #c2d3de;
+}
+
+.cell-long{
+    width: 100px;
+}
+
+.btn{
+    padding:15px;
+    font-size: 20px;
+    border:none;
+    border-radius: 10px;
+    background-color: coral;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    left: 68%;
+}
+
+.btn:hover{
+    background-color: chocolate;
+}
+/* 마우스를 올렸을대 */
+.btn:active{
+    background-color: brown;
+}
+/* 마우스로 클릭했을때 */
+.btn:focus{
+    background-color: grey;
+}
+/* hover active focus 순서 잘맞춰서 넣어야함 */
+
+.flex-container{
+    display: flex;
+    /* 가로정렬하게 해줌 float 처럼 */
+    justify-content: center;
+    /* 가로정렬 한 애들을 중앙정렬시킴 */
+    /* flex-direction: column; */
+    /* column 으로 세로정렬로 바꿀 수 있음 */
+    flex-wrap: wrap;
+    align-items: center;
+    /* align-items로 
+    상하정렬 시킬 수 있음 */
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+
+}
+
+.flex-item{
+    width: 100px;
+    height: 100px;
+    background-color: grey;
+    margin: 5px;
+}
+
+.nav-container{
+    display: flex;
+    height: 50px;
+    align-items: center;
+    padding: 10px;
+}
+
+.nav-item{
+    margin-right: 10px;
+}
+.product-container{
+    width: 80%;
+    max-width: 700px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+}
+
+.product-container div{
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.product-container i{
+    background-color: burlywood;
+    width:100px;
+    height: 100px;
+    border-radius: 50px;
+    padding-top: 25px;
+    box-sizing: border-box;
+    color: white;
+    margin-top: 20px;
+}
+
+.shop-bg{
+    background-color: #eee;
+    padding: 20px;
+}
+
+.shop-container{
+    display: flex;
+    width: 70%;
+    max-width: 900px;
+    margin: auto;
+}
+.shop-item{
+    width:33%;
+    padding: 10px;
+}
+.shop-item img{
+    width:100%;
+    display: block;
+}
+
+
+.overlay-wrap{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.overlay-wrap:hover .overlay-black{
+    margin-top: 50%;
+}
+.overlay-black{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+    margin-top: 100%;
+    transition: all 1s;
+    
+}
+
+@media screen and (max-width: 1200px) {
+    .main-title{
+        font-size: 30px;
+    }
+    .nav-item{
+        font-size: 12px;
+    }
+    .sub-title{
+        font-size: 20px;
+    }
+    .sub-pa{
+        font-size: 15px;
+    }
+    .product-container div{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .main-title{
+        font-size: 20px;
+    }
+    .nav-item{
+        font-size: 9px;
+    }
+    .sub-title{
+        font-size: 15px;
+    }
+    .sub-pa{
+        font-size: 10px;
+    }
+    .product-container div{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .main-title{
+        font-size: 16px;
+    }
+    .nav-item{
+        font-size: 7px;
+    }
+    .sub-title{
+        font-size: 12px;
+    }
+    .sub-pa{
+        font-size: 8px;
+    }
+    .product-container div{
+        width: 100%;
+    }
+}
+
+/* 미디어커리를 사용해서 반응형 웹만들기
+1200px 이하의 상태에선 main-title의 font-size를 30px로 한다. */
