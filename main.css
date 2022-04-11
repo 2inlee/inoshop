@@ -138,6 +138,30 @@ p,h4,h3,h2,span{
     /* 안쪽여백을 주면 main-background가 붕뜨는걸 막아줌*/
     position: relative;
 }
+#dark-mode{
+    position: absolute;
+    right: 200px;
+    width: 70px;
+    height: 30px;
+    background: black;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid gray;
+    text-align: center;
+    margin: auto;
+}
+
+#dark-mode:hover{
+    background-color: white;
+    color:black;
+    border: 2px solid gray;
+}
+.mode-change{
+    background: black;
+    color: white;
+
+}
 
 .main-title{
     color: white;
@@ -211,6 +235,24 @@ p,h4,h3,h2,span{
     
 }
 
+.sub-box-dark {
+    font-size: 10%;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 800px;
+    max-height: 300px;
+    height: 30%;
+    background: gray;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top:-40px;
+    padding: 20px;
+    z-index: 5;
+}
+
 
 input[type=text]{
     padding: 20px;
@@ -226,8 +268,19 @@ input[type=text]{
     padding: 30px;
 }
 
+
 .contact-box{
     background-color: white;
+    padding: 30px;
+    width: 80%;
+    max-width: 700px;
+    height: 60%;
+    max-height: 600px;
+    margin: auto;
+}
+
+.contact-box-dark{
+    background-color: rgb(62, 60, 60);
     padding: 30px;
     width: 80%;
     max-width: 700px;
@@ -271,10 +324,6 @@ input[type=email]{
     display: block;
     margin-left: auto;
 }
-
-/* td,th{
-    border:1px solid black;
-} */
 
 table{
     border-collapse: collapse;
@@ -396,6 +445,11 @@ table{
     padding: 20px;
 }
 
+.shop-bg-dark{
+    background-color: rgb(62, 60, 60);
+    padding: 20px;
+}
+
 .shop-container{
     display: flex;
     width: 70%;
@@ -429,6 +483,14 @@ table{
     margin-top: 100%;
     transition: all 1s;
     
+}
+
+.video-box{
+    position: relative;
+    left: 450px;
+    padding: auto;
+    margin: auto;
+    display: block;
 }
 
 @media screen and (max-width: 1200px) {

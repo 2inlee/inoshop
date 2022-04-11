@@ -9,14 +9,17 @@
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 
-<body style = "margin: 0px">
+<body style = "margin: 0px" id="body-tag">
     <!-- 바디태그에 마진 0px을 넣으면 윗부분공간이 남김없이 사진으로 꽉 찬다. -->
     <nav class="nav-container">
         <div class="nav-item">InoShop</div>
         <div style="flex-grow: 1"></div>
+        <div id="dark-mode">
+            <span class="badge bg-dark">Dark🔄</span>
+        </div>
         <div class="nav-item">News</div>
         <div class="nav-item">Products</div>
         <div class="nav-item">Sevices</div>
@@ -62,6 +65,14 @@
         </div>
         <div style="float: none; clear: both;"></div>
     </div>
+    <div class="video-box">
+        <video controls autoplay muted preload="metadata">
+            <source src="mp4/bridge.mp4" type="video/mp4">
+        </video>
+    </div>
+
+
+
     <div class="shop-bg">
         <div class="shop-container">
             <div class="shop-item">
@@ -126,6 +137,26 @@
             
         </div>
     </div>
+
+    <script>
+        var count = 0;
+        
+        $('.badge').on('click',function(){
+        count++;
+        if(count%2 == 1){
+            $('.badge').html('Light 🔄')
+            $('#body-tag').toggleClass('mode-change')
+            $('.sub-box').toggleClass('sub-box-dark')
+            $('.shop-bg').toggleClass('shop-bg-dark')
+            $('.contact-box').toggleClass('contact-box-dark')
+        } else{
+            $('.badge').html('Dark 🔄')
+            $('#body-tag').toggleClass('mode-change')
+            $('.shop-bg').toggleClass('shop-bg-dark')
+            $('.contact-box').toggleClass('contact-box-dark')
+        }
+    });
+    </script>
 </body>
 
 </html>
